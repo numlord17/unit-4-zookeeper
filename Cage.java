@@ -14,7 +14,7 @@ public class Cage {
      */
     public Cage() {
         // TODO: instantiate animals
-        
+        animals = new ArrayList<Animal>();
         //animals = new ArrayList<Animal>();
         
         // TODO: add at least one new Animal() to the list

@@ -16,7 +16,7 @@ public class Zoo {
      */
     public Zoo() {
         // TODO: instantiate cages
-        
+        cages = new ArrayList<Cage>();
         // TODO: add 3 new Cage() objects to cages
         cages.add(new Cage());
         cages.add(new Cage());
@@ -30,6 +30,7 @@ public class Zoo {
      */
     public Zoo(int numCages) {
         // TODO: instantiate cages
+        cages = new ArrayList<Cage>();
         // TODO: add numCages cages (each should start with at least one animal)
         for (int i = 0; i < numCages; i++)
         {
@@ -117,7 +118,11 @@ public class Zoo {
         // Create a zoo with default constructor
         Zoo zoo = new Zoo();
         // Demonstrate howManyAnimals
-        
+        System.out.println(zoo.getCageAtIndex(0).getNumAnimals());
+        Animal monkey = new Animal("Monkey");
+        zoo.getCageAtIndex(0).addAnimal(monkey);
+        System.out.println(zoo.getCageAtIndex(0).getAnimalAtIndex(0).speak());
+        System.out.println(zoo.getCageAtIndex(0).getAnimalAtIndex(1).speak());
         // Try adding a new animal into cage 0
         
         // Move an animal from one cage to another
