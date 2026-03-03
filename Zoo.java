@@ -18,9 +18,9 @@ public class Zoo {
         // TODO: instantiate cages
         
         // TODO: add 3 new Cage() objects to cages
-        cages.add(Cage());
-        cages.add(Cage());
-        cages.add(Cage());
+        cages.add(new Cage());
+        cages.add(new Cage());
+        cages.add(new Cage());
     }
 
     /**
@@ -33,7 +33,7 @@ public class Zoo {
         // TODO: add numCages cages (each should start with at least one animal)
         for (int i = 0; i < numCages; i++)
         {
-            cages.add(Cage());
+            cages.add(new Cage());
         }
     }
 
@@ -58,7 +58,7 @@ public class Zoo {
         // 1) check whether 'cage' is in 'cages'
         if (cages.contains(cage))
         {
-            cage.add(animal);
+            cage.addAnimal(animal);
             return true;
         }
         // 2) if yes, add animal to that cage and return true
@@ -75,11 +75,14 @@ public class Zoo {
         // - verify from and to are in this Zoo
         if (cages.contains(from) && cages.contains(to))
         {
-            if (from.contains(animal))
+            for (int i = 0; i < from.getNumAnimals(); i++)
             {
-               from.remove(animal);
-               to.add(animal);
-               return true;
+               if (from.getAnimalAtIndex(i) == animal)
+               {
+                  from.removeAnimal(animal);
+                  to.addAnimal(animal);
+                  return true;
+               }
             }
         }
         // - verify animal is in from
@@ -95,7 +98,7 @@ public class Zoo {
 
     public Cage getCageAtIndex(int index) {
         // TODO: return cage at index (or null if invalid)
-        if (index > 0 && index < cages.size())
+        if (index >= 0 && index < cages.size())
         {
          return cages.get(index);
         }
@@ -112,7 +115,7 @@ public class Zoo {
     public static void main(String[] args) {
 
         // Create a zoo with default constructor
-        
+        Zoo zoo = new Zoo();
         // Demonstrate howManyAnimals
         
         // Try adding a new animal into cage 0
