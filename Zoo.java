@@ -109,7 +109,12 @@ public class Zoo {
     public String toString() {
         // TODO: return a readable multi-line summary of the zoo and its cages
         // (How many cages, and each cage's contents.)
-        return "";
+        String returnString = "";
+        returnString += "ZOO CONTENTS:\n";
+        returnString += "CAGE1: " + getCageAtIndex(0) + "\n";
+        returnString += "CAGE2: " + getCageAtIndex(1) + "\n";
+        returnString += "CAGE3: " + getCageAtIndex(2) + "\n";
+        return returnString;
     }
 
     // ===== Main for Testing (not graded) =====
@@ -124,7 +129,7 @@ public class Zoo {
         System.out.println(zoo.getCageAtIndex(0).getAnimalAtIndex(0).speak());
         System.out.println(zoo.getCageAtIndex(0).getAnimalAtIndex(1).speak());
         // Try adding a new animal into cage 0
-        
+        System.out.println(zoo);
         // Move an animal from one cage to another
         
         // Move an animal from one cage to a cage that doesn't exist in this Zoo and see what gets
