@@ -1,79 +1,44 @@
 import java.util.ArrayList;
 
-public class Zoo {
+public class Zoo 
+{
 
-    // ===== Instance Variables =====
-    // Create (but do not instantiate) a private instance variable called "cages".
-    // This variable is an ArrayList of Cages.
    private ArrayList<Cage> cages;
 
-    // ===== Constructors =====
-
-    /**
-     * No-arg constructor:
-     * REQUIRED: instantiate cages list
-     * REQUIRED: create 3 cages, each with starting animal(s)
-     */
-    public Zoo() {
-        // TODO: instantiate cages
+    public Zoo() 
+    {
         cages = new ArrayList<Cage>();
-        // TODO: add 3 new Cage() objects to cages
         cages.add(new Cage());
         cages.add(new Cage());
         cages.add(new Cage());
     }
 
-    /**
-     * Overloaded constructor example:
-     * REQUIRED: demonstrate constructor overloading.
-     * Creates a Zoo with numCages cages.
-     */
-    public Zoo(int numCages) {
-        // TODO: instantiate cages
+    public Zoo(int numCages) 
+    {
         cages = new ArrayList<Cage>();
-        // TODO: add numCages cages (each should start with at least one animal)
         for (int i = 0; i < numCages; i++)
         {
             cages.add(new Cage());
         }
     }
 
-    // ===== Methods =====
-
-    /**
-     * REQUIRED: return total Animal objects ever created.
-     * Must use Animal's static counter.
-     */
-    public int howManyAnimals() {
-        // TODO: return Animal.getAnimalCount()
+    public int howManyAnimals() 
+    {
         return Animal.getAnimalCount();
     }
 
-    /**
-     * REQUIRED:
-     * Add the animal to the cage ONLY IF the cage belongs to this zoo.
-     * Return true if successful, false otherwise.
-     */
-    public boolean putAnimalInCage(Cage cage, Animal animal) {
-        // TODO:
-        // 1) check whether 'cage' is in 'cages'
+    public boolean putAnimalInCage(Cage cage, Animal animal) 
+    {
         if (cages.contains(cage))
         {
             cage.addAnimal(animal);
             return true;
         }
-        // 2) if yes, add animal to that cage and return true
-        // 3) otherwise return false
         return false;
     }
 
-    /**
-     * REQUIRED: move an animal between cages
-     * only if BOTH cages belong to this Zoo.
-     */
-    public boolean moveAnimal(Cage from, Cage to, Animal animal) {
-        // TODO:
-        // - verify from and to are in this Zoo
+    public boolean moveAnimal(Cage from, Cage to, Animal animal) 
+    {
         if (cages.contains(from) && cages.contains(to))
         {
             for (int i = 0; i < from.getNumAnimals(); i++)
@@ -86,19 +51,16 @@ public class Zoo {
                }
             }
         }
-        // - verify animal is in from
-        // - remove from 'from' and add to 'to'
         return false;
     }
 
-    // ===== Getters =====
-
-    public ArrayList<Cage> getCages() {
+    public ArrayList<Cage> getCages() 
+    {
         return cages;
     }
 
-    public Cage getCageAtIndex(int index) {
-        // TODO: return cage at index (or null if invalid)
+    public Cage getCageAtIndex(int index) 
+    {
         if (index >= 0 && index < cages.size())
         {
          return cages.get(index);
@@ -106,9 +68,8 @@ public class Zoo {
         return null;
     }
 
-    public String toString() {
-        // TODO: return a readable multi-line summary of the zoo and its cages
-        // (How many cages, and each cage's contents.)
+    public String toString() 
+    {
         String returnString = "";
         returnString += "ZOO CONTENTS:\n";
         returnString += "CAGE1: " + getCageAtIndex(0) + "\n";
@@ -117,9 +78,8 @@ public class Zoo {
         return returnString;
     }
 
-    // ===== Main for Testing (not graded) =====
-    public static void main(String[] args) {
-
+    public static void main(String[] args) 
+    {
         // Create a zoo with default constructor
         Zoo zoo = new Zoo();
         // Demonstrate howManyAnimals
